@@ -1,0 +1,68 @@
+{% extends 'base_page.html' %}
+
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/base_page_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/book_tour_page_style.css') }}">
+    <title>Бронирование</title>
+</head>
+{% endblock %}
+
+{% block content %}
+<div class="block-selected-tour">
+    <div class="selected-tour">
+        <div class="show-selected-tour">
+            <div class="titel-tour">
+                {{ tour.title }}
+            </div>
+            <div class="img-tour">
+                <img src="{{ url_for('static', path='image/img_tour/' + tour.image) }}" alt="{{ tour.title }}" style="max-width: 300px; height: auto;">
+            </div>
+            <div class="desc-tour">
+                <div class="place-tour">
+                    <span>Место/край:</span>
+                    {{ tour.place }}
+                </div>
+                <div class="start-date-tour">
+                    <span>Дата начала тура:</span>
+                    {{ tour.start_date_tour }}
+                </div>
+                <div class="duration-tour">
+                    <span>Длительность тура:</span>
+                    {{ tour.duration }} дней
+                </div>
+                <div class="max-people-tour">
+                    <span>Количество мест:</span>
+                    {{ tour.max_people }} чел.
+                </div>
+                <div class="av-places-tour">
+                    <span>Свободных мест:</span>
+                    {{ tour.available_places }} чел.
+                </div>
+                <div class="price-tour">
+                    <span>Цена за одного человека:</span>
+                    {{ tour.price_per_person }} руб.
+                </div>
+            </div>
+        </div>
+        <div class="desc-selected-tour">
+            <span>{{ tour.description }}</span>
+        </div>
+        <div class="feedback">
+            <div class="feedback-title">
+                <span>Контакты для броинрования тура:</span>
+            </div>
+            <div class="feedback-field">
+                <span>Тел.:<br>8-945-500-7060, 8-945-100-3456</span>
+                <span>Эл. адрес:<br>ToursForTheSoul@mail.com</span>
+                <span>Юридический адрес:<br>Козицкий пер., 1А, Москва<br>этаж 1, офис 103</span>
+                <span>Ждем Вашего обращения!</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
